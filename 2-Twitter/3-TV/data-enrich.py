@@ -107,8 +107,8 @@ def process_subdir(subdir):
                                         if year:
                                             html_dir = f'HTML/{second_dir}/{year}'
                                             create_directory(html_dir)
-                                            html_filename = f'{html_dir}/{getURIHash(url)}.html'
-                                            with open(html_filename, 'w', encoding='utf-8') as html_file:
+                                            html_filename = f'{html_dir}/{getURIHash(url)}.html.gz'
+                                            with gzip.open(html_filename, 'wt', encoding='utf-8') as html_file:
                                                 html_file.write(doc_lst[0]['text'])
                                     else:
                                         html_filename = None
